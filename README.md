@@ -19,6 +19,7 @@ Clone the repository to your local machine:
 git clone https://github.com/Nikhil-1920/SSL-For-Code.git
 cd SSL-For-Code/final-submit/python_autocomplete/
 ```
+
 ### 2. Install Requirements
 
 Install necessary requirements:
@@ -26,21 +27,24 @@ Install necessary requirements:
 ```bash
 pip install -r requirements.txt
 ```
-###3. Create the Dataset
+
+### 3. Create the Dataset
 
 The dataset used to train the model consists of Python code from various repositories listed in the Awesome-pytorch-list. To prepare the dataset, run the following script:
 
 ```bash
 python3 python_autocomplete/create_dataset.py
 ```
-###4. Train the Model
+
+### 4. Train the Model
 
 Once the dataset is prepared, you can train the model. The training script is available in the python_autocomplete directory:
 
 ```bash
 python3 train.py
 ```
-###5. Use the VSCode Extension for Code Autocompletion
+
+### 5. Use the VSCode Extension for Code Autocompletion
 
 To use the trained model within VSCode, follow these steps:
 
@@ -52,7 +56,8 @@ Install npm dependencies:
 cd frontend
 npm install
 ```
-###6. Start the Python Server:
+
+### 6. Start the Python Server:
 
 The VSCode extension communicates with a Python server. Start the server with:
 
@@ -60,7 +65,7 @@ The VSCode extension communicates with a Python server. Start the server with:
 python3 python_autocomplete/server.py
 ```
 
-###7. Open the VSCode Extension:
+### 7. Open the VSCode Extension:
 
 Open the frontend/ folder in VSCode:
 
@@ -68,15 +73,18 @@ Open the frontend/ folder in VSCode:
 cd frontend/
 code .
 ```
-###8. Run the Extension:
+
+### 8. Run the Extension:
 
 In VSCode, go to Run > Start Debugging. This will launch the extension in a new VSCode window.
 
-###9. Start Coding:
+
+### 9. Start Coding:
 
 Open or create a Python file in VSCode. As you type, the extension will suggest code completions based on the trained model.
 
-###10. Experiment with Hyperparameters
+
+### 10. Experiment with Hyperparameters
 
 Feel free to experiment with the model architecture and hyperparameters:
 
