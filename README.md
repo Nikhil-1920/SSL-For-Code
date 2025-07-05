@@ -88,7 +88,7 @@ SSL-For-Code/
 3. **🗃️ Create the Dataset**  
    The dataset, compiled from Python code in repositories listed in the Awesome PyTorch list, is essential for training. Generate it with:  
    ```bash
-   python3 ssl_for_code/create_dataset.py
+   python3 ssl_for_code/create_dataset.py --num-repos [1 ... N]
    ```
 
 4. **🔤 Create the BPE Cache**  
