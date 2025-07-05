@@ -138,7 +138,9 @@ SSL-For-Code/
 
 ## 🎬 Project Working
 
-[Insert placeholder for project demo or screenshots. You can add images here, e.g., `![VSCode Autocompletion](images/vscode-attention.png)` once available.]
+<p align="center">
+  <img src="images/vscode-attention.png" alt="VSCode Autocompletion" width="600"/>
+</p>
 
 ## 🤝 Contributing
 
