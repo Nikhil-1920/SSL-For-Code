@@ -1,91 +1,145 @@
-# SSL-For-Code: Learning a Code Language Model for Code
+# 🚀 SSL-For-Code: Learning a Code Language Model for Python Code
 
-This project demonstrates how deep learning can be used to autocomplete Python code, providing a productivity boost by saving keystrokes during coding. The project uses **LSTM** and **Transformer** models to predict Python code completions and integrates with a **VSCode extension** for easy interaction.
+🎯 **Boost your Python coding productivity by up to 50% with AI-powered autocompletion!**
 
-## Key Features
-- Train deep learning models for Python code autocompletion.
-- Use a character-level model for simplicity and effectiveness.
-- Save up to **50%** in keystrokes for Python developers.
-- **VSCode Extension**: Integrate the trained model to get autocompletion suggestions directly in VSCode.
-- Model training and evaluation are made simple with easy-to-use Python scripts.
+This project showcases the application of deep learning to enhance Python code autocompletion, significantly boosting developer productivity by reducing keystrokes. Leveraging LSTM and Transformer models, it predicts Python code completions and seamlessly integrates with a VSCode extension for an intuitive coding experience.
 
-## How to Start Working with SSL-For-Code
+## ✨ Key Features
 
-### 1. Clone the Repository & Navigate
+- 🧠 **Deep Learning Models**: Train LSTM and Transformer models tailored for Python code autocompletion.
+- 🔤 **Character-Level Processing**: Utilizes character-level modeling for simplicity and effectiveness.
+- ⚡ **High Efficiency**: Achieve up to 50% keystroke savings for Python developers.
+- 🔌 **VSCode Integration**: Real-time autocompletion suggestions within VSCode.
+- 📊 **Easy Training**: Simplified model training and evaluation with user-friendly Python scripts.
+- 🎛️ **Customizable**: Experiment with different architectures and hyperparameters.
 
-Clone the repository to your local machine:
+## 📁 Directory Structure
 
-```bash
-git clone https://github.com/Nikhil-1920/SSL-For-Code.git
-cd SSL-For-Code/final-submit/python_autocomplete/
+```
+SSL-For-Code/
+├── 📄 LICENSE
+├── 🔧 Makefile
+├── 📖 README.md
+├── 📋 requirements.txt
+├── ⚙️ setup.py
+├── 💾 data/
+│   ├── 🗂️ cache/
+│   └── 📄 pytorch_awesome.md
+├── 📚 docs/
+│   ├── 📊 Project-Presentation.pdf
+│   └── 📋 Project-Proposal.pdf
+├── 🖼️ images/
+│   └── 🎨 vscode-attention.png
+├── 🧠 ssl_for_code/
+│   ├── 🐍 __init__.py
+│   ├── 📦 bundle.py
+│   ├── 🗃️ create_dataset.py
+│   ├── 🌐 distributed.py
+│   ├── 🖥️ server.py
+│   ├── 🎓 train.py
+│   ├── 📊 dataset/
+│   │   ├── 🐍 __init__.py
+│   │   ├── 🔤 bpe.py
+│   │   ├── 📝 break_words.py
+│   │   └── 💾 dataset.py
+│   ├── 🧪 evaluate/
+│   │   ├── 🐍 __init__.py
+│   │   ├── 🔍 anomalies.py
+│   │   ├── 🔍 beam_search_lengthy.py
+│   │   ├── 🔍 beam_search.py
+│   │   ├── 📊 eval_sample.py
+│   │   ├── 🏭 factory.py
+│   │   └── 🎯 generate.py
+│   └── 🤖 models/
+│       ├── 🐍 __init__.py
+│       ├── 🛣️ highway.py
+│       ├── 🔄 lstm.py
+│       ├── 🔄 transformer.py
+│       └── 📈 xl.py
+└── 🔌 vscode_extension/
+    ├── ⚙️ editor-settings.json
+    ├── 📦 package-lock.json
+    ├── 📄 package.json
+    ├── 🔧 tsconfig.json
+    ├── 📚 node_modules/
+    │   └── [dependency packages]
+    ├── 📤 output/
+    │   ├── 🔗 extension.js
+    │   └── 🗺️ extension.js.map
+    └── 💻 src/
+        └── 🔌 extension.ts
 ```
 
-### 2. Install Requirements
+## 🚀 How to Run This Project
 
-Install necessary requirements:
+1. **📥 Clone the Repository & Navigate**  
+   Clone the repository to your local machine and navigate to the project directory:  
+   ```bash
+   git clone https://github.com/Nikhil-1920/SSL-For-Code.git
+   cd SSL-For-Code/
+   ```
 
-```bash
-pip install -r requirements.txt
-```
+2. **📦 Install Requirements**  
+   Install the necessary dependencies listed in the `requirements.txt` file:  
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 3. Create the Dataset
+3. **🗃️ Create the Dataset**  
+   The dataset, compiled from Python code in repositories listed in the Awesome PyTorch list, is essential for training. Generate it with:  
+   ```bash
+   python3 ssl_for_code/create_dataset.py
+   ```
 
-The dataset used to train the model consists of Python code from various repositories listed in the Awesome-pytorch-list. To prepare the dataset, run the following script:
+4. **🔤 Create the BPE Cache**  
+   To create the Byte Pair Encoding (BPE) cache for efficient tokenization and preprocessing of the dataset, run:  
+   ```bash
+   python3 ssl_for_code/dataset/bpe.py
+   ```
 
-```bash
-python3 python_autocomplete/create_dataset.py
-```
+5. **🎓 Train the Model**  
+   With the dataset ready, train the model using the training script:  
+   ```bash
+   python3 ssl_for_code/train.py
+   ```
 
-### 4. Train the Model
+6. **🔌 Set Up the VSCode Extension**  
+   To integrate the trained model with VSCode for autocompletion:  
+   - 📱 **Install Node.js**: Ensure Node.js is installed on your system for running the extension.  
+   - 📦 **Install npm dependencies**: Navigate to the frontend directory and install dependencies:  
+     ```bash
+     cd vscode_extension
+     npm install
+     ```
 
-Once the dataset is prepared, you can train the model. The training script is available in the python_autocomplete directory:
+7. **🖥️ Start the Python Server**  
+   The VSCode extension relies on a Python server. Launch it with:  
+   ```bash
+   python3 ssl_for_code/server.py
+   ```
 
-```bash
-python3 train.py
-```
+8. **💻 Open the VSCode Extension**  
+   Open the `vscode_extension/` folder in VSCode:  
+   ```bash
+   cd vscode_extension/
+   code .
+   ```
 
-### 5. Use the VSCode Extension for Code Autocompletion
+9. **▶️ Run the Extension**  
+   In VSCode, go to `Run > Start Debugging` to launch the extension in a new VSCode window.
 
-To use the trained model within VSCode, follow these steps:
+10. **🎯 Start Coding (for Testing)**  
+    Open or create a Python file in VSCode. As you type, the extension will suggest completions based on the trained model.
 
-Install Node.js: Make sure you have Node.js installed on your system to run the extension.
+11. **🔧 Experiment with Hyperparameters**  
+    Customize the model by adjusting hyperparameters:  
+    - Modify the number of layers or dimensions of the LSTM/Transformer model in `train.py`.  
+    - Experiment with learning rate, batch size, and training epochs to optimize performance.
 
-Install npm dependencies:
+## 🎬 Project Working
 
-```bash
-cd frontend
-npm install
-```
+[Insert placeholder for project demo or screenshots. You can add images here, e.g., `![VSCode Autocompletion](images/vscode-attention.png)` once available.]
 
-### 6. Start the Python Server:
+## 🤝 Contributing
 
-The VSCode extension communicates with a Python server. Start the server with:
-
-```bash
-python3 python_autocomplete/server.py
-```
-
-### 7. Open the VSCode Extension:
-
-Open the frontend/ folder in VSCode:
-
-```bash
-cd frontend/
-code .
-```
-
-### 8. Run the Extension:
-
-In VSCode, go to Run > Start Debugging. This will launch the extension in a new VSCode window.
-
-
-### 9. Start Coding:
-
-Open or create a Python file in VSCode. As you type, the extension will suggest code completions based on the trained model.
-
-
-### 10. Experiment with Hyperparameters
-
-Feel free to experiment with the model architecture and hyperparameters:
-
-Modify the number of layers or dimensions of the LSTM/Transformer model in the training script (train.py). Explore the impact of different hyperparameters like learning rate, batch size, and training epochs.
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.

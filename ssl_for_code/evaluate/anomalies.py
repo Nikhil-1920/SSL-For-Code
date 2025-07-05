@@ -8,7 +8,6 @@ from ssl_for_code.dataset import Tokenizer
 from ssl_for_code.evaluate.factory import load_experiment
 from ssl_for_code.train import StateUpdater
 
-
 def anomalies(tokenizer: Tokenizer, text: str, model: Module, state_updater: StateUpdater, is_token_by_token: bool):
     tokens = tokenizer.encode(text)
 
@@ -63,12 +62,10 @@ def anomalies(tokenizer: Tokenizer, text: str, model: Module, state_updater: Sta
                     logs.append((c, [Style.bold, Text.danger, Style.underline]))
 
         i += 1
-
     logger.log(logs)
 
 def main():
     conf = load_experiment()
-
     with open(str(lab.get_data_path() / 'sample.py'), 'r') as f:
         sample = f.read()
     with monit.section('Anomalies'):

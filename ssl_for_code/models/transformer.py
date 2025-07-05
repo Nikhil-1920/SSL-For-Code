@@ -8,7 +8,6 @@ from labml_nn.transformers import Encoder
 from labml_nn.transformers.utils import subsequent_mask
 from ssl_for_code.models import AutoregressiveModel
 
-
 class TransformerModel(AutoregressiveModel):
     def __init__(self, n_tokens, d_model, encoder: Encoder, src_embed: Module):
         super().__init__()

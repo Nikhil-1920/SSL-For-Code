@@ -14,12 +14,13 @@ def load_experiment() -> Configs:
     # And for latest checkpoint
     # checkpoint = None
 
-    # run_uuid = 'a6cff3706ec411ebadd9bf753b33bae6'  # bpe
+    # Can try this
+    # run_uuid = 'a6cff3706ec411ebadd9bf753b33bae6'  
     # checkpoint = None
     
     run_uuid, checkpoint = experiment.load_bundle(
         lab.get_path() / 'saved_checkpoint.tar.gz',
-        url='https://github.com/lab-ml/python_autocomplete/releases/download/0.0.5/bundle.tar.gz')
+        url='#')
 
     conf_dict = experiment.load_configs(run_uuid)
     conf_dict['text.is_load_data'] = False
@@ -29,7 +30,6 @@ def load_experiment() -> Configs:
     experiment.load(run_uuid, checkpoint)
     experiment.start()
     return conf
-
 
 def get_predictor() -> Predictor:
     conf = load_experiment()

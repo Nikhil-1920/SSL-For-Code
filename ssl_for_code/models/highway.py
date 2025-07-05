@@ -3,7 +3,6 @@ from torch import nn
 from labml_nn.recurrent_highway_networks import RHN
 from ssl_for_code.models import AutoregressiveModel
 
-
 class RhnModel(AutoregressiveModel):
     def __init__(self, *,
                  n_tokens: int,
@@ -21,9 +20,7 @@ class RhnModel(AutoregressiveModel):
         self.fc = nn.Linear(hidden_size, n_tokens)
 
     def __call__(self, x, state=None):
-        # shape of x is [seq, batch, feat]
         x = self.embedding(x)
         out, s = self.rhn(x, state)
         logits = self.fc(out)
-
         return logits, s

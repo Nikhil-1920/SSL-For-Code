@@ -6,7 +6,6 @@ from torch import nn
 from labml_nn.transformers.xl import TransformerXL
 from ssl_for_code.models import AutoregressiveModel
 
-
 class TransformerXLModel(AutoregressiveModel):
     def __init__(self, n_vocab: int, d_model: int, transformer: TransformerXL):
         super().__init__()

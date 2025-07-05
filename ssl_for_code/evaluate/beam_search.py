@@ -42,20 +42,15 @@ class NextWordNewLinePredictionComplete(PredictionComplete):
 
         prev_is_id = text[-1] in ID_CHARS
         last_is_id = token_str[-1] in ID_CHARS
-
         return prev_is_id != last_is_id
-
 
 class BeamSearch:
     def __init__(self):
         pass
-
     def next_batch(self, prompt: torch.Tensor, state: Any):
         raise NotImplementedError
-
     def update(self, next_token, state, old_state):
         raise NotImplementedError
-
 
 class BeamSearchSimple(BeamSearch):
     def __init__(self, *, beam_size: int, prediction_complete: PredictionComplete,
@@ -98,7 +93,6 @@ class BeamSearchSimple(BeamSearch):
         state = self.state_updater.get_from_batch(state, beam_idx)
         text = self.text[beam_idx] + token_str
         heappush(self.result_heap, (prob, (text, state)))
-
         return True
 
     def add_prediction_before_token(self, prob: float, beam_idx: int, state):
@@ -110,7 +104,6 @@ class BeamSearchSimple(BeamSearch):
         state = self.state_updater.get_from_batch(state, beam_idx)
         text = self.text[beam_idx]
         heappush(self.result_heap, (prob, (text, state)))
-
         return True
 
     def add_beam(self, prob: float, beam_idx: int, token: int):
@@ -124,9 +117,7 @@ class BeamSearchSimple(BeamSearch):
             if self.beam_heap[0][0] > prob - EPS_PROB:
                 return False
             heappop(self.beam_heap)
-
         heappush(self.beam_heap, (prob, (beam_idx, token)))
-
         return True
 
     def next_batch(self, prompt: torch.Tensor, state: Any):
@@ -154,7 +145,6 @@ class BeamSearchSimple(BeamSearch):
         new_state = self.state_updater.make_batch(new_state)
 
         self.beam_heap = []
-
         return new_prompt, new_state
 
     def update(self, next_token, state, old_state):
@@ -181,7 +171,7 @@ class BeamSearchSimple(BeamSearch):
                         break
                     else:
                         break
-                    # if not self.add_prediction(self.probs[b] * tokens[token].item(), b, token_str, state):
-                    #     break
+
+                # if not self.add_prediction(self.probs[b] * tokens[token].item(), b, token_str, state):
                 if not self.add_beam(self.probs[b] * tokens[token].item(), b, token):
                     break

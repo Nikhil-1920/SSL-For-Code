@@ -6,7 +6,6 @@ from ssl_for_code.evaluate import Predictor
 from ssl_for_code.evaluate.beam_search import NextWordPredictionComplete
 from ssl_for_code.evaluate.factory import get_predictor
 
-
 def evaluate(predictor: Predictor, text: str):
     line_no = 1
     logs = [(f"{line_no: 4d}: ", Text.meta), (text[0], Text.subtle)]
@@ -56,20 +55,16 @@ def evaluate(predictor: Predictor, text: str):
         key_strokes += 1
 
     logger.log(logs)
-
     logger.inspect(accuracy=correct / (len(text) - 1),
                    key_strokes=key_strokes,
                    length=len(text))
 
-
 def main():
     predictor = get_predictor()
-
     with open(str(lab.get_data_path() / 'sample.py'), 'r') as f:
         sample = f.read()
     with monit.section('Evaluate'):
         evaluate(predictor, sample)
-
 
 if __name__ == '__main__':
     main()

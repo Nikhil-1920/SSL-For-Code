@@ -1,0 +1,33 @@
+{
+	"name": "ssl_for_code",
+	"displayName": "Autocomplete Python code with a transformer",
+	"version": "0.0.1",
+	"publisher": "nikhil",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Nikhil-1920/SSL-For-Code"
+	},
+	"bugs": {
+		"url": "https://github.com/Nikhil-1920/SSL-For-Code/issues"
+	},
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./output/extension.js",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "*",
+		"@types/vscode": "*",
+		"typescript": "*"
+	}
+}

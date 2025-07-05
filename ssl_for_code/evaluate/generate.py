@@ -30,18 +30,14 @@ def generate(predictor: Predictor, text: str, completion: int):
             text += c
 
         i += 1
-
     logger.log(logs)
-
 
 def main():
     predictor = get_predictor()
-
     with open(str(lab.get_data_path() / 'sample.py'), 'r') as f:
         sample = f.read()
     with monit.section('Generate'):
         generate(predictor, 'import numpy as np\n', 1000)
-
 
 if __name__ == '__main__':
     main()

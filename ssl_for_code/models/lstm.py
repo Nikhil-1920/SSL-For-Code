@@ -6,7 +6,6 @@ from torch import nn
 from labml_nn.lstm import LSTM
 from ssl_for_code.models import AutoregressiveModel
 
-
 class LstmModel(AutoregressiveModel):
     def __init__(self, *,
                  n_tokens: int,
