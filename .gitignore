@@ -1,0 +1,13 @@
+data/
+venv/
+.DS_Store
+.*.swp
+logs/
+labml
+transformers
+labml_nn
+labml_helpers
+einops
+build
+dist
+*.tar.gz
